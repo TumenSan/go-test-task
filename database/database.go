@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"math/rand"
+	"os"
 
 	_ "github.com/lib/pq"
 )
@@ -13,7 +14,13 @@ var DB *sql.DB
 
 func InitDatabase() {
 	var err error
-	DB, err = sql.Open("postgres", "host=localhost port=5432 user=postgres password=password dbname=paymentdb sslmode=disable")
+	connStr := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
+		os.Getenv("DB_HOST"),
+		os.Getenv("DB_PORT"),
+		os.Getenv("DB_USER"),
+		os.Getenv("DB_PASSWORD"),
+		os.Getenv("DB_NAME"))
+	DB, err = sql.Open("postgres", connStr)
 	if err != nil {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
