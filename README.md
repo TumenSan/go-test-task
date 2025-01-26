@@ -1,3 +1,5 @@
+# https://github.com/TumenSan/go-test-task
+
 ## Запуск с Docker Compose
 1. Убедитесь, что Docker and Docker Compose установлены.
 2. Откройте терминал и перейдите в директорию проекта.
