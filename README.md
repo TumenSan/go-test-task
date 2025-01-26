@@ -57,3 +57,9 @@ Send - метод имеющий эндпоинт POST /api/send, которы
 2. Clone the repository and navigate to the project directory.
 3. Run `go run main.go`.
 4. The server will start on `http://localhost:8080`.
+
+## Database
+The application uses PostgreSQL to persist data. A file named `transactions.db` is created to store wallets and transactions.
+
+## Dependencies
+- `github.com/lib/pq` - PostgreSQL driver.
