@@ -1,3 +1,12 @@
+## Запуск с Docker Compose
+1. Убедитесь, что Docker and Docker Compose установлены.
+2. Откройте терминал и перейдите в директорию проекта.
+3. Запустите Docker Compose:
+   ```sh
+   docker-compose up --build
+   ```
+4. Сервер запустится на http://localhost:8080, и БД PostgreSQL будет на localhost:5432.
+
 ## Функции
 - При первом запуске приложения должны создаваться 10 кошельков с случайными
 адресами и 100.0 у.е. на счету.
@@ -43,7 +52,7 @@ Send - метод имеющий эндпоинт POST /api/send, которы
 ### GET `/api/wallet/{address}/balance`
 Метод возвращающий информацию о балансе кошелька в JSON-объекте.
 #### Path Parameters
-- `address` - The address of the wallet.
+- `address` - Адрес кошелька.
 #### Response
 ```json
 {
@@ -52,14 +61,15 @@ Send - метод имеющий эндпоинт POST /api/send, которы
 }
 ```
 
-## Running Locally
-1. Install Go (1.20 or later).
-2. Clone the repository and navigate to the project directory.
-3. Run `go run main.go`.
-4. The server will start on `http://localhost:8080`.
+## Локальный запуск
+1. Убедитесь что установлен Gо (1.20 или последующие версии).
+2. Клонируйте репозиторий и перейдите в директорию проекта.
+3. Введите `go run main.go`.
+4. Сервер запустится на `http://localhost:8080`.
 
-## Database
-The application uses PostgreSQL to persist data. A file named `transactions.db` is created to store wallets and transactions.
+## База данных
+Приложение использует PostgreSQL для сохранения данных. Для хранения 
+кошельков и транзакций создается файл с именем "transactions.db".
 
 ## Dependencies
-- `github.com/lib/pq` - PostgreSQL driver.
+- `github.com/lib/pq` - драйвер PostgreSQL.
