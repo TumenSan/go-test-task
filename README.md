@@ -1,7 +1,7 @@
 # https://github.com/TumenSan/go-test-task
 
 ## Запуск с Docker Compose
-1. Убедитесь, что Docker and Docker Compose установлены.
+1. Убедитесь, что Docker и Docker Compose установлены.
 2. Откройте терминал и перейдите в директорию проекта.
 3. Запустите Docker Compose:
    ```sh
@@ -75,3 +75,35 @@ Send - метод имеющий эндпоинт POST /api/send, которы
 
 ## Dependencies
 - `github.com/lib/pq` - драйвер PostgreSQL.
+
+## Проверка работы
+Для более наглядной проверки работы сервера можно использовать командную строку.
+
+`docker exec -it go-test-task-db-1 bash`
+
+`psql -U postgres -d paymentdb`
+
+`\dt`
+
+            List of relations
+ Schema |     Name     | Type  |  Owner
+--------+--------------+-------+----------
+ public | transactions | table | postgres
+ public | wallets      | table | postgres
+(2 rows)
+
+`SELECT * from WALLETS;`
+
+     address      | balance
+------------------+---------
+ 26929a6dedde2306 |     100
+ 14431491ef884fab |     100
+ 5e8cc2f755761801 |     100
+ 69e7b555124a13ad |     100
+ 7b73cff566d23fa3 |     100
+ 6c90084fd23d1f29 |     100
+ 2f21c11cc9700d84 |     100
+ 531709da14fdd3b3 |     100
+ edd063dba18cd75  |      10
+ 167fd9f385f969b  |     190
+(10 rows)
